@@ -52,12 +52,12 @@ func main() {
 	flag.StringVar(&dir, "dir", ".", "the directory to serve files from. Defaults to the current dir")
 	flag.Parse()
 	r := mux.NewRouter()
-	r.HandleFunc("/nvs/v1/global", NvsHandler)
-	r.HandleFunc("/session/v1/init", v1Handler)
-	r.HandleFunc("/session/v2/init", v2Handler)
-	r.HandleFunc("/pub/telemetry/v1/publish-pre-session-client-telemetry-events", TeleHandler)
-	r.HandleFunc("/player-session/v1/initialize", PSHandler)
-	r.PathPrefix("").Handler(http.StripPrefix("/", http.FileServer(http.Dir(dir))))
+	r.HandleFunc("/nvs/v1/global", NvsHandler) //these are used in old pvz3
+	r.HandleFunc("/session/v1/init", v1Handler) //this is used in 2021 pvz3
+	r.HandleFunc("/session/v2/init", v2Handler) //these are used in 2024 pvz3
+	r.HandleFunc("/pub/telemetry/v1/publish-pre-session-client-telemetry-events", TeleHandler) //these are used in 2024 pvz3
+	r.HandleFunc("/player-session/v1/initialize", PSHandler) //these are used in old pvz3
+	r.PathPrefix("").Handler(http.StripPrefix("/", http.FileServer(http.Dir(dir)))) //static files, aka assets
 
 	srv := &http.Server{
 		Handler: r,
