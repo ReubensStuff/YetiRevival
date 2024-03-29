@@ -9,7 +9,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func NvsHandler(w http.ResponseWriter, r *http.Request) {
+func NvsHandler(w http.ResponseWriter, r *http.Request) { //this handles the login process
 	if r.Method == "POST" {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
@@ -17,29 +17,29 @@ func NvsHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func v2Handler(w http.ResponseWriter, r *http.Request) {
+func v2Handler(w http.ResponseWriter, r *http.Request) { //new pvz3 related, ignore
 	if r.Method == "POST" {
 		w.Header().Set("Content-Type", "application/x-protobuf")
 		w.WriteHeader(http.StatusOK)
 	}
 }
 
-func v1Handler(w http.ResponseWriter, r *http.Request) {
-	if r.Method == "GET" {
-		w.Header().Set("Content-Type", "application/x-protobuf")
-		w.WriteHeader(http.StatusOK)
-	}
-}
-
-func TeleHandler(w http.ResponseWriter, r *http.Request) {
+func v1Handler(w http.ResponseWriter, r *http.Request) { //new pvz3 related, ignore
 	if r.Method == "POST" {
 		w.Header().Set("Content-Type", "application/x-protobuf")
 		w.WriteHeader(http.StatusOK)
 	}
 }
 
-func PSHandler(w http.ResponseWriter, r *http.Request) {
-	if r.Method == "GET" {
+func TeleHandler(w http.ResponseWriter, r *http.Request) { //new pvz3 related, ignore
+	if r.Method == "POST" {
+		w.Header().Set("Content-Type", "application/x-protobuf")
+		w.WriteHeader(http.StatusOK)
+	}
+}
+
+func PSHandler(w http.ResponseWriter, r *http.Request) { //This i what gets the asset download request to appear, even if all you send is a status 200 response
+	if r.Method == "POST" {
 		w.Header().Set("Content-Type", "application/x-protobuf")
 		w.WriteHeader(http.StatusOK)
 	}
@@ -57,7 +57,7 @@ func main() {
 	r.HandleFunc("/session/v2/init", v2Handler) //these are used in 2024 pvz3
 	r.HandleFunc("/pub/telemetry/v1/publish-pre-session-client-telemetry-events", TeleHandler) //these are used in 2024 pvz3
 	r.HandleFunc("/player-session/v1/initialize", PSHandler) //these are used in old pvz3
-	r.PathPrefix("").Handler(http.StripPrefix("/", http.FileServer(http.Dir(dir)))) //static files, aka assets
+	r.PathPrefix("").Handler(http.StripPrefix("/", http.FileServer(http.Dir(dir)))) //static files, aka assets (anything not in here will be in the folders)
 
 	srv := &http.Server{
 		Handler: r,
