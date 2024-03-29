@@ -1,1 +1,0 @@
-/d %%X in (*) do "c:\Program Files\7-Zip-Zstandard\7z.exe" a "%%X.bundle" "%%X\"
