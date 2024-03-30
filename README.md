@@ -10,7 +10,8 @@ you can get the APK from your own sources or redownload the game if you owned it
 for this project, I am using golang. I was originally using XAMPP but I need to be able to respond to both POST and GET requests from the client.
 
 # What's done?
-The game gets to the Age Check, errors, if you press OK, asks if you'd like to download assets, and if you do this it errors again?
+Android: The game gets to the Age Check, errors, if you press OK, asks if you'd like to download assets, and if you do this it errors again?
+iOS: The game gets to the Age Check, then infinitely loads.
 
 # How do I edit the game to use my custom servers? (on the latest version)
 for production (release) unpack the apk, go into assets and open up app_settings.json.
