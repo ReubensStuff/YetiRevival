@@ -11,6 +11,8 @@ for this project, I am using golang. I was originally using XAMPP but I need to 
 
 # What's done?
 Android: The game gets to the Age Check, errors, if you press OK, asks if you'd like to download assets, and if you do this it errors again?
+
+
 iOS: The game gets to the Age Check, then infinitely loads.
 
 # How do I edit the game to use my custom servers? (on the latest version)
