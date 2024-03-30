@@ -4,7 +4,7 @@ a revival for the old version of PvZ3, currently in progress, any help appreciat
 # How can I help?
 if you have any experience with any of the following things (server development, game revivals, packet capturing) contact me on discord: funnyguy098
 
-you can get the APK from your own sources or redownload the game if you owned it.
+you can get the APK from your own sources or redownload the game if you owned it, I likely cant publish it here for legal reasons.
 
 # What are you using, so I know if i can contribute or not?
 for this project, I am using golang. I was originally using XAMPP but I need to be able to respond to both POST and GET requests from the client.
@@ -28,10 +28,18 @@ For dev, you will need a hex editor.
 First of all, unpack the APK, go into assets and open up app_settings.json.
 Now, change the 
 *"ServerEnvironment": "prod",* string to say
+
+
 *"ServerEnvironment": "dev",*
 Now, get your Hex Editor, and go to assets/bin/Data/Managed/Metadata and open it up.
+
+
 Look for both of these URLs.
+
+
 *https://pvz3-prod.awspopcap.com/*
+
+
 *https://pvz3-prd-cdn.popcap.com*
 
-Now, simply change them to your own. (The URL **MUST** be the same size or less as the original one)
+Now, simply change them to your own. (The URL **MUST** be the same size or less as the original one, or you could use something like https://github.com/JeremieCHN/MetaDataStringEditor as an alternative.)
