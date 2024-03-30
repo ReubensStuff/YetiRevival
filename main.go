@@ -9,7 +9,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func NvsHandler(w http.ResponseWriter, r *http.Request) { //this handles the login process
+func NvsHandler(w http.ResponseWriter, r *http.Request) { //this handles the login process, seemingly ignores the strings below? not sure why, this game is so strange
 	if r.Method == "POST" {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
@@ -38,7 +38,7 @@ func TeleHandler(w http.ResponseWriter, r *http.Request) { //new pvz3 related, i
 	}
 }
 
-func PSHandler(w http.ResponseWriter, r *http.Request) { //This i what gets the asset download request to appear, even if all you send is a status 200 response
+func PSHandler(w http.ResponseWriter, r *http.Request) { //This is what gets the asset download request to appear, even if all you send is a status 200 response which is what we're doing here.
 	if r.Method == "POST" {
 		w.Header().Set("Content-Type", "application/x-protobuf")
 		w.WriteHeader(http.StatusOK)
