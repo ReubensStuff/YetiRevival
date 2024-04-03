@@ -10,10 +10,9 @@ import (
 )
 
 func NvsHandler(w http.ResponseWriter, r *http.Request) { //this handles the login process, seemingly ignores the strings below? not sure why, this game is so strange
-	if r.Method == "POST" {
-		w.Header().Set("Content-Type", "application/json")
+	if r.Method == "GET" {
+		w.Header().Set("Content-Type", "application/x-protobuf")
 		w.WriteHeader(http.StatusOK)
-		http.Error(w, "{\n  \"Strings\": {\n    \"MinClientVersion\": \"1.0\"\n  },\n  \"Throttles\": {\n    \"LanguageIndonesian\": 0.0,\n    \"LanguageItalian\": 0.0,\n    \"LanguageBrazilianPortuguese\": 0.0,\n    \"LanguageSpainSpanish\": 0.0,\n    \"LanguageMexicanSpanish\": 0.0,\n    \"LanguageKorean\": 0.0,\n    \"LanguageGerman\": 0.0,\n    \"LanguageFrench\": 0.0,\n    \"LanguageJapanese\": 0.0\n  },\n  \"VersionHash\": \"024cc1f9c050b71c0d1b1684e06574bb2beae7009e0ad56eab2174b9389ee6bd\"\n}", http.StatusOK)
 	}
 }
 
